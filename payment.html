@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 360px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+        .payment-box {
+            width: 100%;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f9f9f9;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .input-field:focus {
+            border-color: #007bff;
+            outline: none;
+            background: #fff;
+        }
+        .pay-button, .download-button, .home-button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        p{
+            font-size: 18px;
+        }
+        .pay-button:hover, .download-button:hover, .home-button:hover {
+            background: #0056b3;
+            transform: scale(1.03);
+        }
+        .receipt {
+            text-align: center;
+            padding: 15px;
+        }
+        .payment-done {
+            font-size: 50px;
+            color: #28a745;
+            margin-top: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 400px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+    <script>
+        function showPaymentFields() {
+            let paymentMethod = document.getElementById("paymentMethod").value;
+            let paymentDetails = document.getElementById("paymentDetails");
+            paymentDetails.innerHTML = "";
+
+            if (paymentMethod === "upi") {
+                paymentDetails.innerHTML = '<input type="text" id="upiId" placeholder="Enter UPI ID (e.g., yourname@upi)" class="input-field" required pattern=".+@.+">';
+            } else if (paymentMethod === "card") {
+                paymentDetails.innerHTML = '<input type="text" id="cardNumber" placeholder="Enter Card Number" class="input-field" required>' +
+                                          '<input type="text" id="expiryDate" placeholder="MM/YY" class="input-field" required>' +
+                                          '<input type="text" id="cvv" placeholder="CVV" class="input-field" required>';
+            } else if (paymentMethod === "netbanking") {
+                paymentDetails.innerHTML = '<input type="text" id="bankName" placeholder="Enter Bank Name" class="input-field" required>';
+            } else if (paymentMethod === "wallet") {
+                paymentDetails.innerHTML = '<input type="text" id="walletName" placeholder="Enter Wallet Name" class="input-field" required>';
+            }
+        }
+
+        function processPayment() {
+            let paymentMethod = document.getElementById("paymentMethod").value;
+            if (paymentMethod === "") {
+                alert("Please select a valid payment method.");
+                return;
+            }
+
+            let paymentForm = document.getElementById("paymentForm");
+            if (!paymentForm.checkValidity()) {
+                alert("Please fill in the required details correctly.");
+                return;
+            }
+            
+            document.getElementById("paymentForm").classList.add("hidden");
+            document.getElementById("receipt").classList.remove("hidden");
+            let amount = document.getElementById("amount").value || "0";
+            document.getElementById("receiptDetails").innerHTML = "Your payment of ₹" + amount + " was successful.";
+        }
+
+        function downloadReceipt() {
+            let amount = document.getElementById("amount").value || "0";
+            let paymentMethod = document.getElementById("paymentMethod").value;
+            let paymentDetailsInput = document.getElementById("paymentDetails").querySelector("input");
+            let paymentDetail = paymentDetailsInput ? paymentDetailsInput.value : "N/A";
+            let receiptText = `Payment Receipt\n------------------------\nAmount Paid: ₹${amount}\nPayment Method: ${paymentMethod}\nDetails: ${paymentDetail}\nPayment Status: Successful`;
+            
+            let blob = new Blob([receiptText], { type: "text/plain" });
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Payment_Receipt.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function goHome() {
+            window.location.href = "index.html"; // Change to your actual home page URL
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-box">
+            <h2>Send Money Securely</h2>
+            <p>Complete your payment below</p>
+            <form id="paymentForm">
+                <input type="number" id="amount" placeholder="Enter Amount (₹)" class="input-field" required>
+                <select id="paymentMethod" class="input-field" onchange="showPaymentFields()" required>
+                    <option value="" selected>Select Payment Method</option>
+                    <option value="upi">UPI</option>
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="netbanking">Net Banking</option>
+                    <option value="wallet">Wallet</option>
+                </select>
+                <div id="paymentDetails"></div>
+                <button type="button" class="pay-button" onclick="processPayment()">Proceed to Pay</button>
+            </form>
+            <div class="receipt hidden" id="receipt">
+                <h2>Payment Successful!</h2>
+                <p id="receiptDetails"></p>
+                <div class="payment-done">✔</div>
+                <button onclick="downloadReceipt()" class="download-button">Download Receipt</button>
+                <button onclick="goHome()" class="home-button">Go to Home</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

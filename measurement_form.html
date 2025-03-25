@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        width: 80%;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .header img {
+        width: 200px;
+    }
+    
+    .info {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+    
+    .info p {
+        flex: 1;
+        text-align: left;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    
+    .info input {
+        width: 60%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    /* Measurement Images */
+    .measurement-images {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .measurement-images img {
+        max-width: 30%;
+        height: auto;
+        border-radius: 5px;
+    }
+    
+    /* Form Styling */
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+    }
+    
+    label {
+        font-weight: bold;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+    
+    input {
+        width: 50%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 15px;
+        }
+    
+        .measurement-images img {
+            max-width: 45%;
+        }
+    
+        input {
+            width: 80%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="section-header">
+        <div class="container">
+            <div class="logo">
+                <img src="NIKUNJ LOGO/N I K U N J.png" alt="Brand Logo">
+            </div>
+            <div class="navbar">
+                <ul class="navmenu">
+                    <li class="nav-list"><a href="index.html" class="nav-link">HOME</a></li>
+                   <li class="nav-list"><a href="aboutus.html" class="nav-link" id="about">ABOUT</a></li>
+                </ul>
+            </div>
+            <div class="cart">
+                <ul>
+                    <!-- <li class="cart"><img src="ICONS/BLK/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Search" class="icon" id="search"></li> -->
+                    <li class="cart"><a href="login.php"><img src="ICONS/account-50.png" alt="Account" class="icon"></a>
+                    </li>
+                    <li class="cart"><a href="cart.php"><img src="ICONS/shopping-bag-50.png" alt="Shopping Bag"
+                                class="icon"></a></li>
+                </ul>
+            </div>
+        </div>
+    </header><br><br><br><br><br><br><br>
+
+    <div class="container">
+        <div class="info">
+            <p>Customer Name: <input type="text" name="customer_name" required></p>
+            <p>Mobile No.: <input type="text" name="mobile_no" required></p>
+        </div>
+
+        <div class="measurement-images">
+            <img src="front_view_1.png" alt="Measurement Front View 1">
+            <img src="front_view_2.png" alt="Measurement Front View 2">
+            <img src="side_view.png" alt="Measurement Side View">
+        </div>
+
+        <form action="measure.php" method="POST">
+            <label for="height">1. Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+
+            <label for="shoulder_to_waist">2. Shoulder to Waist (cm):</label>
+            <input type="number" id="shoulder_to_waist" name="shoulder_to_waist" required>
+
+            <label for="shoulder_to_thumb">3(a). Shoulder to Half Thumb (cm):</label>
+            <input type="number" id="shoulder_to_thumb" name="shoulder_to_thumb" required>
+
+            <label for="shoulder_to_knee">3(b). Shoulder to Knee (cm):</label>
+            <input type="number" id="shoulder_to_knee" name="shoulder_to_knee" required>
+
+            <label for="shoulder">4. Shoulder (cm):</label>
+            <input type="number" id="shoulder" name="shoulder" required>
+
+            <label for="cross_back">5. Cross Back (cm):</label>
+            <input type="number" id="cross_back" name="cross_back" required>
+
+            <label for="sleeve">6. Sleeve Length (cm):</label>
+            <input type="number" id="sleeve" name="sleeve" required>
+
+            <label for="armhole">7. Armhole (cm):</label>
+            <input type="number" id="armhole" name="armhole" required>
+
+            <label for="around_arm">8. Around Arm (cm):</label>
+            <input type="number" id="around_arm" name="around_arm" required>
+
+            <label for="wrist">9. Around Wrist (cm):</label>
+            <input type="number" id="wrist" name="wrist" required>
+
+            <label for="neck">10. Around Neck (cm):</label>
+            <input type="number" id="neck" name="neck" required>
+
+            <label for="chest">11. Around Chest (cm):</label>
+            <input type="number" id="chest" name="chest" required>
+
+            <label for="waist">12. Around Waist (cm):</label>
+            <input type="number" id="waist" name="waist" required>
+
+            <label for="hips">13. Around Hips (cm):</label>
+            <input type="number" id="hips" name="hips" required>
+
+            <label for="outer_length">14. Trouser Length (Outer Seam) (cm):</label>
+            <input type="number" id="outer_length" name="outer_length" required>
+
+            <label for="inner_length">15. Trouser Length (Inner Seam) (cm):</label>
+            <input type="number" id="inner_length" name="inner_length" required>
+
+            <label for="thigh">16. Around Upper Thigh (cm):</label>
+            <input type="number" id="thigh" name="thigh" required>
+
+            <label for="knee">17. Around Calves (cm):</label>
+            <input type="number" id="knee" name="knee" required>
+
+            <label for="shoe_size">18. Shoe Size:</label>
+            <input type="number" id="shoe_size" name="shoe_size" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p><strong>Note:</strong> Kindly fill the above information with care. Measurements should be filled as per the arrow.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,566 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: vanity;
+    src: url(FONT/vanity/VanityOTF/Vanity-Bold.otf);
+}
+
+@font-face {
+    font-family: playfair;
+    src: url(FONT/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "urbanist";
+    src: url(FONT/Urbanist/Urbanist-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: "jost";
+    src: url(FONT/Jost/Jost-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: cursue;
+    src: url(FONT/Blenda/Blenda\ Script.otf);
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+:root{
+    --navbar-color: rgb(0, 0, 0);
+    --footer-hover-color: rgb(53, 53, 53);
+}
+
+p,a{
+    text-decoration: none;
+    font-family: urbanist;
+    font-size: 1.5rem;
+}
+
+.container{
+    width: 100vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: auto;
+}
+
+
+
+/* *****START HEADER SECTION***** */
+.section-header{
+    width: 100vw;
+    height: 9vh;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
+    position: fixed;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 100;
+}
+
+.section-header .container{
+    height: 9vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    place-items: center;
+    background-color: rgba(255, 255, 255, 0.214);
+}
+
+.section-header .container .navbar .popup{
+    display: none;
+    position: absolute;
+    left: 0%;
+    top: 62%;
+    width: 100vw;
+    padding: 0.5rem 0;
+    list-style-type: none;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+    background-color: white;
+    /* text-align: center; */
+    transition: all 0.3s linear;
+    padding-top: 3.5rem;
+    padding-left: 2rem;
+}
+
+.section-header .container .navbar .popup li{
+    margin-bottom: 1rem;
+}
+
+.section-header .container .navbar .popup li:last-child{
+    margin-bottom: 0;
+}
+
+.section-header .container .navbar .popup li a{
+    color: black;
+    font-weight: 400;
+    font-family: jost;
+    letter-spacing: 0.1rem;
+}
+
+.section-header .container .navbar .navmenu #collections:hover .popup{
+    display: block;
+} 
+
+.section-header .container .logo{
+    width: 21.631rem;
+    display: flex;
+    place-items: center;
+}
+
+.section-header .container .logo img{
+    width: 17rem;
+    z-index: 10;
+}
+
+.section-header .container .navbar .navmenu{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.section-header .container .navbar .navmenu .nav-list .nav-link{
+    color: black;
+    font-family: jost;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    color: var(--navbar-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+.section-header .container .navbar .navmenu .nav-list #about:hover{
+    background-color: red;
+    color:white;
+}
+
+.section-header .container .cart ul{
+    /* width: 15rem; */
+    margin-left: calc(216.3px - 94px);
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.section-header .container .cart ul li{
+    display: flex;
+    place-items: center;
+}
+
+.section-header .container .cart ul li a{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0;
+}
+
+/* #search{
+    width: 3rem;
+    transition: all 0.3s linear;
+}
+
+#search:hover{
+    width: 3.25rem;
+} */
+
+.section-header .container .cart ul li a img{
+    width: 2rem;
+    z-index: 10;
+}
+
+.section-header .container .cart ul li:first-child a img{
+    width: 2.4rem;
+}
+/* *****END HEADER SECTION***** */
+
+
+
+/* *****START MAIN SECTION***** */
+.section-main{
+    width: 100vw;
+}
+.section-main .container{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    padding-top: 9vh;
+}
+.section-main .container .banner{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    position: relative;
+}
+/* .section-main .container .banner::before{
+    position: absolute;
+    width: 1536px;
+    height: 863.94px;
+    content: "Ethnic Pride";
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.795));
+    z-index: 2;
+    display: flex;
+    place-items: flex-end;
+    justify-content: center;
+    font-size: 150px;
+    color: white;
+    font-family: playfair;
+    font-weight: 300;
+} */
+
+.section-main .container .banner img{
+    width: 100vw;
+    padding: 0 20px;
+}
+
+.section-main .container .catalogue{
+    width: 100vw;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    place-items: end;
+    justify-content: center;
+}
+
+.section-main .container .catalogue .image{
+    width: 50rem;
+    height: 62.684rem;
+    display: flex;
+    place-items: end;
+    justify-content: center;
+    background-color: white;
+}
+
+/* .section-main .container .catalogue #sherwani{
+    justify-content: right;
+}
+
+.section-main .container .catalogue #kurta{
+    justify-content: left;
+}
+
+.section-main .container .catalogue #suit{
+    justify-content: right;
+} */
+
+.section-main .container .catalogue #jodhpuri img{
+    width: 50.3rem;
+    height: 62.684rem;
+}
+
+.section-main .container .catalogue .image img{
+    width: 50.3rem;
+    height: auto;
+    border: 0;
+    object-fit: cover;
+}
+
+.section-main .container .catalogue .categories{
+    width: calc(100vw - 4rem - 50rem);
+    height: 59.3rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    gap: 2rem;
+    background-image: linear-gradient(to bottom, #FFFEFF 0%, #d7efff 100%);
+    background-color: transparent;
+}
+
+.section-main .container .catalogue .categories .viewall{
+    font-family: jost;
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    position: relative;
+    text-transform:capitalize;
+}
+
+.section-main .container .catalogue .categories .viewall::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.05rem;
+    border-bottom: 0.2rem solid rgb(0, 0, 0);
+    width: 0%;
+    transition: all 0.5s linear;
+}
+
+.section-main .container .catalogue .categories .viewall:hover:after{
+    width: 100%;
+}
+
+.section-main .container .catalogue .categories .explore{
+    font-family: urbanist;
+    font-size: 2.2rem;
+    width: 15rem;
+    height: 4rem;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    border: 0;
+    background-color: black;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    transition: width 0.3s linear, font-size 0.3s linear;
+}
+
+.section-main .container .catalogue .categories .explore:hover{
+    width: 16rem;
+}
+
+.section-main .container .catalogue .categories .brief{
+    font-family: urbanist;
+    font-size: 1.8rem;
+    text-align: justify;
+    word-spacing: 0.5rem;
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+    color: #404040;
+}
+
+.title{
+    width: 100vw;
+    text-align: center;
+    font-family: jost;
+    font-size: 5rem;
+    font-weight: 600;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    /* background-color: rgb(202, 202, 196); */
+}
+/* *****END MAIN SECTION***** */
+
+
+
+/* *****START FOOTER SECTION***** */
+.section-footer{
+    width: 100vw;
+    background-color: black;
+    /* margin-top: 2.7rem; */
+}
+.section-footer .container{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    gap: 5rem;
+    color: white;
+    padding-bottom: 2rem;
+}
+
+.section-footer .container #logo{
+    width: 30rem;
+}
+
+.section-footer .container .social{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+#fb:hover{
+    color: rgb(112, 112, 255);
+    /* font-weight: 600; */
+}
+
+#insta:hover{
+    color: rgb(255, 135, 221);
+    /* font-weight: 600; */
+}
+
+#twt:hover{
+    color: rgb(123, 182, 255);
+    /* font-weight: 600; */
+}
+
+.section-footer .container p{
+    letter-spacing: 0.1rem;
+}
+
+.section-footer .container ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.section-footer .container ul li a{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    place-items: center;
+    justify-content: center;
+}
+
+.section-footer .container a{
+    font-size: 1.6rem;
+    color: white;
+    /* transition: all 0.5s linear; */
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.section-footer .container .guide ul li{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    place-items: center;
+    justify-content: center;
+}
+
+.section-footer .container .guide ul li .div-img{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-footer .container .guide ul .div-img:hover{
+    background-color: var(--footer-hover-color);
+}
+
+.section-footer .container .guide ul li img{
+    width: 5rem;
+}
+
+.section-footer .container .guide ul li .guide-links{
+    position: relative;
+}
+
+.section-footer .container .guide ul li .guide-links:hover{
+    color: goldenrod;
+}
+
+.section-footer .container .guide ul li .guide-links::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -0.5rem;
+    border-bottom: 0.2rem solid goldenrod;
+    width: 0%;
+    transition: all 0.5s linear;
+}
+.section-footer .container .guide ul li .guide-links:hover:after{
+    width: 100%;
+}
+/* *****END FOOTER SECTION***** */
+
+@media (max-width: 1200px) {
+    /* .section-main .container .catalogue .image, {
+        flex-direction: column; 
+        padding: 1rem;
+        place-items: center;
+        justify-content: center;
+
+    } */
+
+    /* .section-header .container .navbar .navmenu {
+        flex-direction: column; /* Stack menu items on smaller screens */
+        gap: 2rem;
+    } */
+
+    .section-footer .container img {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 1039.2px) {
+    .section-header .container{
+        flex-direction: column;
+        height: 15vh; /* Stack logo and nav on smaller screens */
+    }
+
+    .section-header .container .navbar .navmenu {
+        gap: 1rem;
+    }
+
+    .section-main .container .banner img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .section-header{
+        height: 17vh;
+    }
+    .section-header .container {
+        flex-direction: column;
+        height: 17vh;
+        padding: 6px 0;
+        gap: 6px;
+        place-items: center;
+        justify-content: center;
+    }
+
+    .section-header .container .logo{
+        width: 170px;
+    }
+
+    .section-header .container .cart ul{
+        margin-left: 0
+    }
+
+    .section-header .container .navbar .navmenu {
+        gap: 1rem;
+    }
+
+    .section-main{
+        padding-top: 8vh;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-main .container .banner img {
+        width: 100%;
+    }
+    .section-main .container .catalogue .image, img {
+        width: 50vw;
+    }
+    .section-main .container .catalogue .categories{
+        width: 50vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header .container .cart ul {
+        margin-left: 0; /* Center align cart on small screens */
+    }
+
+    .section-footer ul {
+        flex-direction: column; /* Stack footer links */
+        gap: 1rem;
+    }
+}

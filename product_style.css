@@ -1,0 +1,183 @@
+.section-main .container{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+}
+
+.section-main .container .box-1{
+    width: 150rem;
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+    padding: 5rem 0;
+    place-items: center;
+}
+
+.section-main .container .box-1 .image{
+    width: 75rem;
+    display: flex;
+    justify-content: center;
+    /* background-color: white; */
+}
+
+.section-main .container .box-1 .image img{
+    width: 45rem;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+    cursor: zoom-in;
+}
+
+.section-main .container .box-1 .details{
+    width: 75rem;
+    height: 56.416rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-main .container .box-1 .details .name{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.section-main .container .box-1 .details .price{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.section-main .container .box-1 .details .price .op{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+}
+
+.section-main .container .box-1 .details .price .op .old-price{
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+    text-decoration: line-through;
+}
+
+.section-main .container .box-1 .details .price .op .new-price{
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+}
+
+.section-main .container .box-1 .details .price .discount{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.section-main .container .box-1 .details .tax{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    margin-bottom: 3rem;
+}
+.section-main .container .box-1 .details .fit{
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-main .container .box-1 .details .fit p{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.section-main .container .box-1 .details .fit .regular{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-left: 3px;
+}
+
+.section-main .container .box-1 .details .regular-box{
+    width: 15rem;
+    height: 4rem;
+    background-color: rgb(219, 222, 223);
+    border: 1px solid black;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.section-main .container .box-1 .details .size-quantity{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+.section-main .container .box-1 .details .size-quantity .size{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: 500;
+    /* letter-spacing: 0.1rem; */
+    gap: 1rem;
+    font-family: urbanist;
+}
+
+.section-main .container .box-1 .details .size-quantity .size select{
+    outline: none;
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid black;
+}
+
+.section-main .container .box-1 .details .size-quantity .size select option:hover{
+    background-color: rgb(219, 222, 223);
+}
+
+.section-main .container .box-1 .details .size-quantity .quantity{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: 500;
+    /* letter-spacing: 0.1rem; */
+    gap: 1rem;
+    font-family: urbanist;
+}
+
+.section-main .container .box-1 .details .size-quantity .qnt{
+    outline: none;
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    border: 1px solid black;
+    padding-left: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.section-main .container .box-1 .details .btn-cart{
+    width: 35.5rem;
+    height: 5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background-color: #363636;
+    color: white;
+    font-family: urbanist;
+    border: 0;
+}
+
+.btn-cart {
+    padding: 10px 20px;
+    font-family: 'Urbanist', sans-serif;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cart:hover {
+    opacity: 0.9;
+}
